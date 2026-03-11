@@ -13,6 +13,12 @@ SELECT count(*) AS Totale FROM students WHERE YEAR(date_of_birth)=1990;
 ```
 
 ```sql
+SELECT concat("tot"," =  ",count(*)) AS Totale
+FROM students
+WHERE YEAR(date_of_birth)=1990;
+```
+
+```sql
 SELECT count(*) AS Totale
 FROM students
 WHERE date_of_birth

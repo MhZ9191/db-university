@@ -12,6 +12,13 @@ exams.date="2020-06-20" AND HOUR(exams.hour)>=14) as data_esame_pomeriggio, (SEL
 SELECT concat("anno_1990"," - " ,count(*)) AS Totale FROM students WHERE YEAR(date_of_birth)=1990 union select concat("dipartimenti" , " - " , count(*))FROM departments union select concat("no_cell"," - ",count(*))FROM teachers WHERE phone IS NOT NULL;
 ```
 
+## Nuova query
+
+```sql
+select e.location as location,c.name as name ,c.cfu from exams as e inner join courses as c where e.course_id=c.id and e.date="2020-01-19";
+
+```
+
 ## Selezionare tutti gli studenti nati nel 1990 (160)
 
 ```sql

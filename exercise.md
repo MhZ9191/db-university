@@ -94,3 +94,9 @@ WHERE substr(degrees.level,1,3)="mag";
 ```sql
 SELECT count(*) AS Totale FROM departments;
 ```
+
+## Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+
+```sql
+SELECT count(*) AS Totale FROM teachers WHERE phone IS NOT NULL;
+```

@@ -74,3 +74,23 @@ SELECT count(*) AS Totale
 FROM exams
 WHERE exams.date="2020-06-20" AND HOUR(exams.hour)>=14;
 ```
+
+## Selezionare tutti i corsi di laurea magistrale (38)
+
+```sql
+SELECT count(*) AS Totale
+FROM degrees
+WHERE degrees.level LIKE "magistrale";
+```
+
+```sql
+SELECT count(*) AS Totale
+FROM degrees
+WHERE substr(degrees.level,1,3)="mag";
+```
+
+## Da quanti dipartimenti è composta l'università? (12)
+
+```sql
+SELECT count(*) AS Totale FROM departments;
+```

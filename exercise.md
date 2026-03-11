@@ -19,22 +19,36 @@ laurea (286)
 ## Selezionare tutti gli studenti nati nel 1990 (160)
 
 ```sql
-SELECT count(*) FROM students WHERE YEAR(date_of_birth)=1990;
+SELECT count(*) AS Totale FROM students WHERE YEAR(date_of_birth)=1990;
 ```
 
 ```sql
-SELECT count(*)
+SELECT count(*) AS Totale
 FROM students
 WHERE date_of_birth
 BETWEEN "1990-01-01" AND "1990-12-31";
 ```
 
 ```sql
-SELECT count(*)
+SELECT count(*) AS Totale
 FROM students
 WHERE date_of_birth >= "1990-01-01" AND date_of_birth <= "1990-12-31";
 ```
 
 ```sql
-SELECT count(*) FROM students WHERE date_of_birth LIKE "1990%";
+SELECT count(*) AS Totale FROM students WHERE date_of_birth LIKE "1990%";
+```
+
+## Selezionare tutti i corsi che valgono più di 10 crediti (479)
+
+```sql
+SELECT count(cfu) AS Totale FROM courses WHERE cfu > 10;
+```
+
+## Selezionare tutti gli studenti che hanno più di 30 anni
+
+```sql
+SELECT count(*) AS Totale
+FROM students
+WHERE timestampdiff(YEAR,date_of_birth,curdate())>=30;
 ```

@@ -6,6 +6,12 @@ count(*) FROM courses WHERE courses.period LIKE "I semestre" AND courses.year=1)
 exams.date="2020-06-20" AND HOUR(exams.hour)>=14) as data_esame_pomeriggio, (SELECT count(*) FROM departments) as departments ,(SELECT count(*) FROM teachers WHERE phone IS NOT NULL) as insegnanti_no_cell;
 ```
 
+# Nuova query di test
+
+```sql
+SELECT concat("anno_1990"," - " ,count(*)) AS Totale FROM students WHERE YEAR(date_of_birth)=1990 union select concat("dipartimenti" , " - " , count(*))FROM departments union select concat("no_cell"," - ",count(*))FROM teachers WHERE phone IS NOT NULL;
+```
+
 ## Selezionare tutti gli studenti nati nel 1990 (160)
 
 ```sql

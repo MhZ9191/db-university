@@ -52,3 +52,25 @@ SELECT count(*) AS Totale
 FROM students
 WHERE timestampdiff(YEAR,date_of_birth,curdate())>=30;
 ```
+
+## Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
+
+```sql
+SELECT count(*) AS Totale
+FROM courses
+WHERE courses.period LIKE "I semestre" AND courses.year=1;
+```
+
+```sql
+SELECT count(*) AS Totale
+FROM courses
+WHERE substr(courses.period,2,1)=' ' AND courses.year=1;
+```
+
+## Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020 (21)
+
+```sql
+SELECT count(*) AS Totale
+FROM exams
+WHERE exams.date="2020-06-20" AND HOUR(exams.hour)>=14;
+```

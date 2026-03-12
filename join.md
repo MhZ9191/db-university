@@ -39,3 +39,9 @@ select cou.* from teachers as tea inner join course_teacher as ct on tea.id=ct.t
 ```sql
 select stu.name,stu.surname,deg.name as dep_name,dep.name as department_name from students as stu inner join degrees as deg on stu.degree_id=deg.id inner join courses as cou on deg.id=cou.degree_id inner join departments as dep on dep.id=deg.department_id group by stu.name order by stu.name,stu.surname limit 10;
 ```
+
+## Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+
+```sql
+select deg.name as degree_name,cou.name as course_name,concat(tea.name," ", tea.surname) as teacher_name  from degrees as deg inner join courses as cou on deg.id=cou.degree_id inner join course_teacher as ct on ct.course_id=cou.id inner join teachers as tea on tea.id=ct.teacher_id order by degree_name limit 10 ;
+```

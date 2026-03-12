@@ -52,3 +52,9 @@ select deg.name as degree_name,cou.name as course_name,concat(tea.name," ", tea.
 select dep.name,concat(tea.name," ",tea.surname) as teacher from departments as dep inner join degrees as deg on dep.id=deg.department_id inner join courses as cou on cou.degree_id=deg.id inner join course_teacher as ct on ct.course_id=cou.id inner join teachers as tea
 on ct.teacher_id=tea.id where dep.name like "%Matematica%" group by teacher;
 ```
+
+## BONUS
+
+```sql
+select concat(stu.surname," ",stu.name) as student,count(stu.id) as tentativi, MAX(vote) as voto_massimo from students as stu inner join exam_student as es on stu.id=es.student_id inner join exams as exa on es.exam_id=exa.id group by stu.id having voto_massimo<=18 limit 10;
+```

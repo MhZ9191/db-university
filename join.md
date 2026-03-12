@@ -45,3 +45,10 @@ select stu.name,stu.surname,deg.name as dep_name,dep.name as department_name fro
 ```sql
 select deg.name as degree_name,cou.name as course_name,concat(tea.name," ", tea.surname) as teacher_name  from degrees as deg inner join courses as cou on deg.id=cou.degree_id inner join course_teacher as ct on ct.course_id=cou.id inner join teachers as tea on tea.id=ct.teacher_id order by degree_name limit 10 ;
 ```
+
+## Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
+
+```sql
+select dep.name,concat(tea.name," ",tea.surname) as teacher from departments as dep inner join degrees as deg on dep.id=deg.department_id inner join courses as cou on cou.degree_id=deg.id inner join course_teacher as ct on ct.course_id=cou.id inner join teachers as tea
+on ct.teacher_id=tea.id where dep.name like "%Matematica%" group by teacher;
+```

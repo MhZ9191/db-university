@@ -37,5 +37,5 @@ select cou.* from teachers as tea inner join course_teacher as ct on tea.id=ct.t
 ## Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
 
 ```sql
-
+select stu.name,stu.surname,deg.name as dep_name,dep.name as department_name from students as stu inner join degrees as deg on stu.degree_id=deg.id inner join courses as cou on deg.id=cou.degree_id inner join departments as dep on dep.id=deg.department_id group by stu.name order by stu.name,stu.surname limit 10;
 ```

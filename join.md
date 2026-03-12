@@ -27,3 +27,15 @@ SELECT s.name,s.surname FROM students AS s INNER JOIN degrees AS d ON d.id=s.deg
 ```sql
 select cou.* from departments as dep inner join degrees as deg on dep.id=deg.department_id inner join courses as cou on cou.degree_id=deg.id where dep.name like "%Neuroscienze" limit 5;
 ```
+
+## Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
+
+```sql
+select cou.* from teachers as tea inner join course_teacher as ct on tea.id=ct.teacher_id inner join courses as cou on ct.course_id=cou.id where tea.id=44 limit 10;
+```
+
+## Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
+
+```sql
+
+```
